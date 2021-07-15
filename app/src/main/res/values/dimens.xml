@@ -1,0 +1,9 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="character_choose_height">120dp</dimen>
+    <dimen name="avatar_box_size">90dp</dimen>
+    <dimen name="margin_standard">16dp</dimen>
+    <dimen name="margin_half">8dp</dimen>
+    <dimen name="character_name_size">24sp</dimen>
+    <dimen name="character_name_size_double">48sp</dimen>
+</resources>

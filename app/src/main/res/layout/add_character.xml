@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:fillViewport="true">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/charNameCreator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_margin="@dimen/character_name_size_double"
+        android:hint="@string/character_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:autofillHints=""
+        android:maxLines="1"/>
+
+    <EditText
+        android:id="@+id/charRaceCreator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_margin="@dimen/character_name_size_double"
+        android:hint="@string/character_race"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/charNameCreator"
+        android:autofillHints=""
+        android:maxLines="1"/>
+
+    <EditText
+        android:id="@+id/charClassCreator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_margin="@dimen/character_name_size_double"
+        android:hint="@string/character_class"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/charRaceCreator"
+        android:autofillHints=""
+        android:maxLines="1"/>
+
+    <EditText
+        android:id="@+id/charLevelCreator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/character_level"
+        android:ems="2"
+        android:layout_margin="@dimen/character_name_size_double"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/charClassCreator"
+        android:autofillHints=""
+        />
+
+    <Button
+        android:id="@+id/addCharBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Character"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/charLevelCreator" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
