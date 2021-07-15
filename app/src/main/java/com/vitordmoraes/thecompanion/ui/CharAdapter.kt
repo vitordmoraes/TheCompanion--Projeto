@@ -16,15 +16,29 @@ class CharAdapter() : RecyclerView.Adapter<CharAdapter.ViewHolder>() {
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(character: Character) {
-            val context = itemView.context
             val charAvatar = itemView.charAvatar
-            charAvatar.setImageResource(context.resources.getIdentifier(character.uri, null, context.packageName))
+
             itemView.charClass.text = character.clas
             itemView.charName.text = character.name
             itemView.charRace.text = character.race
             itemView.charLvl.text = character.lvl
 
-
+            when (character.clas) {
+                "Artificer" ->  charAvatar.setImageResource(R.drawable.artificer)
+                "Barbarian" ->  charAvatar.setImageResource(R.drawable.barbarian)
+                "Bard" ->       charAvatar.setImageResource(R.drawable.bard)
+                "Blood hunter"->charAvatar.setImageResource(R.drawable.bloodhunter)
+                "Cleric"->      charAvatar.setImageResource(R.drawable.cleric)
+                "Druid"->       charAvatar.setImageResource(R.drawable.druid)
+                "Fighter"->     charAvatar.setImageResource(R.drawable.fighter)
+                "Monk"->        charAvatar.setImageResource(R.drawable.monk)
+                "Paladin"->     charAvatar.setImageResource(R.drawable.paladin)
+                "Ranger"->      charAvatar.setImageResource(R.drawable.ranger)
+                "Rogue"->       charAvatar.setImageResource(R.drawable.rogue)
+                "Sorcerer"->    charAvatar.setImageResource(R.drawable.sorc)
+                "Wizard"->      charAvatar.setImageResource(R.drawable.wizard)
+                "Custom Character"->charAvatar.setImageResource(R.drawable.uachar)
+            }
         }
     }
 
@@ -44,6 +58,7 @@ class CharAdapter() : RecyclerView.Adapter<CharAdapter.ViewHolder>() {
     override fun getItemCount(): Int  = char.size
 
     fun addNewChars(newChars: List<Character>){
+        char.clear()
         char.addAll(newChars)
         notifyDataSetChanged()
     }

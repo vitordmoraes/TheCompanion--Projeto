@@ -12,6 +12,24 @@
     <string name="character_avatar_image">Character Avatar</string>
     <string name="character_name">Character Name</string>
     <string name="character_race">Character Race</string>
-    <string name="character_class">Character Class</string>
+    <string name="character_class2">Character Class</string>
     <string name="character_level">Character Level</string>
+    
+    <string-array name="character_avatar">
+        <item>Artificer</item>
+        <item>Barbarian</item>
+        <item>Bard</item>
+        <item>Blood hunter</item>
+        <item>Cleric</item>
+        <item>Druid</item>
+        <item>Fighter</item>
+        <item>Monk</item>
+        <item>Paladin</item>
+        <item>Ranger</item>
+        <item>Rogue</item>
+        <item>Sorcerer</item>
+        <item>Wizard</item>
+        <item>Custom Class</item>
+    </string-array>
+    
 </resources>

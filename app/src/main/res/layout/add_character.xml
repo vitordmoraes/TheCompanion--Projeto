@@ -37,19 +37,17 @@
         android:autofillHints=""
         android:maxLines="1"/>
 
-    <EditText
+    <Spinner
         android:id="@+id/charClassCreator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
+        android:entries="@array/character_avatar"
+        android:spinnerMode="dialog"
         android:layout_margin="@dimen/character_name_size_double"
-        android:hint="@string/character_class"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/charRaceCreator"
-        android:autofillHints=""
-        android:maxLines="1"/>
+        />
 
     <EditText
         android:id="@+id/charLevelCreator"
@@ -65,6 +63,7 @@
         android:autofillHints=""
         />
 
+
     <Button
         android:id="@+id/addCharBtn"
         android:layout_width="wrap_content"
@@ -74,6 +73,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/charLevelCreator" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

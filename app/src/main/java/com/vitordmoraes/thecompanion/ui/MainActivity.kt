@@ -29,8 +29,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initUi() {
-        val newChars = repository.getChars()
-
         findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
             startActivity(AddCharacterActivity.getIntent(this))
         }
@@ -38,16 +36,21 @@ class MainActivity : AppCompatActivity() {
 
         characterRecyclerview.layoutManager = LinearLayoutManager(this)
         characterRecyclerview.adapter = adapter
-        adapter.addNewChars(newChars)
+
+        onRefresh()
 
     }
 
     override fun onResume() {
         super.onResume()
 
-        repository.getChars()
+        onRefresh()
     }
 
+    private fun onRefresh() {
+        val newChars = repository.getChars()
+        adapter.addNewChars(newChars)
+    }
     
 
 
