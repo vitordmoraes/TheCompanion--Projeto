@@ -39,6 +39,8 @@ class CharAdapter() : RecyclerView.Adapter<CharAdapter.ViewHolder>() {
                 "Wizard"->      charAvatar.setImageResource(R.drawable.wizard)
                 "Custom Character"->charAvatar.setImageResource(R.drawable.uachar)
             }
+            
+
         }
     }
 

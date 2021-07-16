@@ -1,16 +1,18 @@
 package com.vitordmoraes.thecompanion.ui
 
-import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.vitordmoraes.thecompanion.App
 import com.vitordmoraes.thecompanion.R
 import com.vitordmoraes.thecompanion.model.Character
+import com.vitordmoraes.thecompanion.ui.CharacterActivity.CharacterActivity
 import com.vitordmoraes.thecompanion.ui.addChar.AddCharacterActivity
 import kotlinx.android.synthetic.main.content_main.*
 
@@ -51,7 +53,27 @@ class MainActivity : AppCompatActivity() {
         val newChars = repository.getChars()
         adapter.addNewChars(newChars)
     }
-    
+
+     fun shortItemTap(character: Character){
+        startActivity(CharacterActivity.getIntent(this, character))
+    }
+
+     fun longItemTap(view: View, character: Character) {
+        val builder = AlertDialog.Builder(view.context)
+
+        builder.setTitle("Delete Character")
+        builder.setMessage("Are you sure, you want delete ${character.name}?")
+        builder.setPositiveButton(
+                "Delete now!") { dialog, id ->
+                repository.deleteChar(character.id)
+                onRefresh()
+                Toast.makeText(this, "${character.name} was deleted.",Toast.LENGTH_SHORT).show()
+        }
+        builder.setNegativeButton(
+                "Cancel"){ dialog, id ->
+        }
+        builder.show()
+    }
 
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -69,6 +91,8 @@ class MainActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
+
+
 
 
 }
