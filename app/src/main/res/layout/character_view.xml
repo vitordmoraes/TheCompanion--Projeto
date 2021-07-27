@@ -6,54 +6,69 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/character_choose_height">
 
-
-    <ImageView
-        android:id="@+id/charAvatar"
-        android:layout_width="@dimen/avatar_box_size"
-        android:layout_height="@dimen/avatar_box_size"
-        android:layout_margin="@dimen/margin_standard"
-        android:contentDescription="@string/character_avatar_image"
+    <androidx.cardview.widget.CardView
+        app:cardUseCompatPadding="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="8dp"
+        app:cardPreventCornerOverlap="false"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/uachar" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/charName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="Character Name"
-        app:layout_constraintBottom_toBottomOf="@id/charClass"
-        app:layout_constraintStart_toEndOf="@+id/charAvatar"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_margin="@dimen/margin_standard"
-        android:textSize="@dimen/character_name_size"
-        android:textStyle="bold"
-        android:maxLines="2"
-        />
 
-    <TextView
-        android:id="@+id/charRace"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="Race"
-        app:layout_constraintStart_toEndOf="@+id/charAvatar"
-        app:layout_constraintTop_toBottomOf="@+id/charName"
-        android:layout_marginTop="@dimen/margin_half"
-        android:layout_marginStart="@dimen/margin_standard"
-        android:layout_marginEnd="@dimen/margin_half"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/charClass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="Class"
-        app:layout_constraintStart_toEndOf="@+id/charRace"
-        app:layout_constraintTop_toBottomOf="@+id/charName"
-        android:layout_marginTop="@dimen/margin_half"
-        android:layout_marginStart="@dimen/margin_standard"/>
+            <ImageView
+                android:id="@+id/charAvatar"
+                android:layout_width="@dimen/avatar_box_size"
+                android:layout_height="@dimen/avatar_box_size"
+                android:layout_margin="@dimen/margin_standard"
+                android:contentDescription="@string/character_avatar_image"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/uachar" />
 
-    <TextView
+             <TextView
+                 android:id="@+id/charName"
+                 android:layout_width="0dp"
+                 android:layout_height="wrap_content"
+                 tools:text="Character Name"
+                 app:layout_constraintBottom_toBottomOf="@id/charClass"
+                 app:layout_constraintStart_toEndOf="@+id/charAvatar"
+                 app:layout_constraintTop_toTopOf="parent"
+                 android:layout_margin="@dimen/margin_standard"
+                 android:textSize="@dimen/character_name_size"
+                 android:textStyle="bold"
+                 android:maxLines="2" />
+
+            <TextView
+                 android:id="@+id/charRace"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 tools:text="Race"
+                 app:layout_constraintStart_toEndOf="@+id/charAvatar"
+                 app:layout_constraintTop_toBottomOf="@+id/charName"
+                 android:layout_marginTop="@dimen/margin_half"
+                 android:layout_marginStart="@dimen/margin_standard"
+                 android:layout_marginEnd="@dimen/margin_half"/>
+
+             <TextView
+                 android:id="@+id/charClass"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 tools:text="Class"
+                 app:layout_constraintStart_toEndOf="@+id/charRace"
+                 app:layout_constraintTop_toBottomOf="@+id/charName"
+                 android:layout_marginTop="@dimen/margin_half"
+                 android:layout_marginStart="@dimen/margin_standard"/>
+
+             <TextView
         android:id="@+id/charLvl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -61,11 +76,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="00"
+        android:maxLength="2"
         android:layout_margin="@dimen/margin_standard"
         android:textSize="36sp"
         android:textStyle="bold"/>
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+    </androidx.cardview.widget.CardView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,6 +21,7 @@ class FilesHelperImpl(private val directory: File) : FilesHelper {
     override fun getData(): List<File> = directory.listFiles()?.toList() ?: emptyList()
 
 
+
     override fun deleteData(fileName: String) {
         val targetFile = buildFile(fileName)
 

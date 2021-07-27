@@ -22,8 +22,8 @@ class AddCharacterActivity :AppCompatActivity () {
     private val repository by lazy { App.repository }
 
     companion object {
-        fun getIntent(context: Context):Intent = Intent(context,
-        AddCharacterActivity::class.java)
+        fun getIntent(context: Context):Intent =
+                Intent(context, AddCharacterActivity::class.java)
     }
 
 
@@ -37,11 +37,14 @@ class AddCharacterActivity :AppCompatActivity () {
     }
 
     private fun arrayFun() {
-
         val res : Resources = resources
-        val items = res.getStringArray(R.array.character_avatar)
+        val avatar = res.getStringArray(R.array.character_avatar)
+        val level = res.getStringArray(R.array.character_level)
 
-        charClassCreator.adapter = ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, items)
+
+        charClassCreator.adapter = ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, avatar)
+        charLevelCreator.adapter = ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, level)
+
 
     }
 
@@ -54,11 +57,9 @@ class AddCharacterActivity :AppCompatActivity () {
         val newCharName = charNameCreator.text.toString()
         val newCharRace = charRaceCreator.text.toString()
         val newCharClass = charClassCreator.selectedItem.toString()
-        val newCharLvl = charLevelCreator.text.toString()
+        val newCharLvl = charLevelCreator.selectedItem.toString()
         if (newCharName.isNotEmpty() &&
-                newCharRace.isNotEmpty() &&
-                newCharClass.isNotEmpty() &&
-                newCharLvl.isNotEmpty()) {
+                newCharRace.isNotEmpty() ){
                     repository.saveChar(Character(
                         newCharName, newCharRace,
                         newCharClass, newCharLvl
@@ -68,8 +69,6 @@ class AddCharacterActivity :AppCompatActivity () {
             when {
                 newCharName.isEmpty() -> Toast.makeText(applicationContext, "Character name is missing!", Toast.LENGTH_SHORT).show()
                 newCharRace.isEmpty() -> Toast.makeText(applicationContext, "Character race is missing!", Toast.LENGTH_SHORT).show()
-                newCharClass.isEmpty() -> Toast.makeText(applicationContext, "Character class is missing!", Toast.LENGTH_SHORT).show()
-                newCharLvl.isEmpty() -> Toast.makeText(applicationContext, "Character level is missing!", Toast.LENGTH_SHORT).show()
             }
         }
     }

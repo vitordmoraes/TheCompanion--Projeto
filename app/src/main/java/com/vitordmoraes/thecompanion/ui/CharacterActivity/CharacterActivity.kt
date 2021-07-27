@@ -11,16 +11,22 @@ import com.vitordmoraes.thecompanion.model.Character
 
 class CharacterActivity : AppCompatActivity() {
 
+
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
         setContentView(R.layout.character_activity)
     }
 
-    companion object {
-        private const val CHAR_KEY = "character"
 
-        fun getIntent(context: Context, character: Character): Intent = Intent(context,
-                CharacterActivity::class.java)
+    companion object {
+        private const val CHAR_KEY = "Character"
+
+        fun getIntent(context: Context, character: Character): Intent =
+                Intent(context, CharacterActivity::class.java).apply {
+                    putExtra(CHAR_KEY, character)
+                }
         }
+
+
 
 }

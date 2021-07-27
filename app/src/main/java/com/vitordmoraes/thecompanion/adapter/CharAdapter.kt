@@ -1,21 +1,24 @@
-package com.vitordmoraes.thecompanion.ui
+package com.vitordmoraes.thecompanion.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.vitordmoraes.thecompanion.R
-import com.vitordmoraes.thecompanion.util.inflate
 import com.vitordmoraes.thecompanion.model.Character
 import kotlinx.android.synthetic.main.character_view.view.*
+import kotlin.reflect.KFunction2
 
-class CharAdapter() : RecyclerView.Adapter<CharAdapter.ViewHolder>() {
+class CharAdapter(private val onItemClicked: (Character) -> Unit,
+                  private val onLongItemClicked: KFunction2<View, Character, Unit>) : RecyclerView.Adapter<CharAdapter.ViewHolder>() {
 
     private val char = mutableListOf<Character>()
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(character: Character) {
+        fun bind(character: Character,
+                 onItemClicked: (Character) -> Unit,
+                 onLongItemClicked: KFunction2<View, Character, Unit>) {
             val charAvatar = itemView.charAvatar
 
             itemView.charClass.text = character.clas
@@ -39,7 +42,11 @@ class CharAdapter() : RecyclerView.Adapter<CharAdapter.ViewHolder>() {
                 "Wizard"->      charAvatar.setImageResource(R.drawable.wizard)
                 "Custom Character"->charAvatar.setImageResource(R.drawable.uachar)
             }
-            
+
+            itemView.setOnClickListener { onItemClicked(character) }
+
+            itemView.setOnLongClickListener { onLongItemClicked(this.itemView, character)
+            true }
 
         }
     }
@@ -50,11 +57,10 @@ class CharAdapter() : RecyclerView.Adapter<CharAdapter.ViewHolder>() {
         val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.character_view, parent, false)
         return ViewHolder(view)
-        //return ViewHolder(parent.inflate(R.layout.character_view))
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(char[position])
+        holder.bind(char[position], onItemClicked, onLongItemClicked)
     }
 
     override fun getItemCount(): Int  = char.size

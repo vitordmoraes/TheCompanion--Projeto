@@ -42,26 +42,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:entries="@array/character_avatar"
-        android:spinnerMode="dialog"
+        android:spinnerMode="dropdown"
         android:layout_margin="@dimen/character_name_size_double"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/charRaceCreator"
         />
 
-    <EditText
+    <Spinner
         android:id="@+id/charLevelCreator"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/character_level"
-        android:ems="2"
+        android:entries="@array/character_level"
+        android:spinnerMode="dialog"
         android:layout_margin="@dimen/character_name_size_double"
-        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/charClassCreator"
-        android:autofillHints=""
         />
+
 
 
     <Button

@@ -11,5 +11,6 @@ interface CharRepository {
     fun deleteChar(charName: String)
 
     fun getChars() : List<Character>
+    
 
 }

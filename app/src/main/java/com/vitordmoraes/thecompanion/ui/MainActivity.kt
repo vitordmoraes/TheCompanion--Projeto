@@ -1,7 +1,6 @@
 package com.vitordmoraes.thecompanion.ui
 
 import android.os.Bundle
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
@@ -11,6 +10,8 @@ import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.vitordmoraes.thecompanion.App
 import com.vitordmoraes.thecompanion.R
+import com.vitordmoraes.thecompanion.adapter.CharAdapter
+import com.vitordmoraes.thecompanion.databinding.ActivityMainBinding
 import com.vitordmoraes.thecompanion.model.Character
 import com.vitordmoraes.thecompanion.ui.CharacterActivity.CharacterActivity
 import com.vitordmoraes.thecompanion.ui.addChar.AddCharacterActivity
@@ -19,46 +20,50 @@ import kotlinx.android.synthetic.main.content_main.*
 class MainActivity : AppCompatActivity() {
 
     private val repository by lazy { App.repository }
-    private val adapter by lazy { CharAdapter()}
+    private val adapter by lazy { CharAdapter(::onShortItemClicked,::onLongItemClicked)}
+    private lateinit var binding: ActivityMainBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        setSupportActionBar(findViewById(R.id.toolbar))
+        this.binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
 
+    }
+
+    override fun onStart() {
+        super.onStart()
 
         initUi()
     }
 
     private fun initUi() {
-        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
+        binding.fab.setOnClickListener { view ->
             startActivity(AddCharacterActivity.getIntent(this))
         }
-
-
         characterRecyclerview.layoutManager = LinearLayoutManager(this)
         characterRecyclerview.adapter = adapter
-
-        onRefresh()
-
+        refresh()
     }
 
     override fun onResume() {
         super.onResume()
 
-        onRefresh()
+        refresh()
     }
 
-    private fun onRefresh() {
+    private fun refresh() {
         val newChars = repository.getChars()
         adapter.addNewChars(newChars)
     }
 
-     fun shortItemTap(character: Character){
-        startActivity(CharacterActivity.getIntent(this, character))
+     private fun onShortItemClicked(character: Character){
+        startActivity(CharacterActivity.getIntent(this, character)
+                .putExtra("CHAR_KEY",character))
     }
 
-     fun longItemTap(view: View, character: Character) {
+     private fun onLongItemClicked( view: View, character: Character) {
         val builder = AlertDialog.Builder(view.context)
 
         builder.setTitle("Delete Character")
@@ -66,13 +71,14 @@ class MainActivity : AppCompatActivity() {
         builder.setPositiveButton(
                 "Delete now!") { dialog, id ->
                 repository.deleteChar(character.id)
-                onRefresh()
+                refresh()
                 Toast.makeText(this, "${character.name} was deleted.",Toast.LENGTH_SHORT).show()
         }
         builder.setNegativeButton(
                 "Cancel"){ dialog, id ->
         }
         builder.show()
+        refresh()
     }
 
 
