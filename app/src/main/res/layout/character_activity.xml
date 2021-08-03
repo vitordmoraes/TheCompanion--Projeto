@@ -1,70 +1,241 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/characterAvatar"
         android:layout_width="@dimen/avatar_box_size"
         android:layout_height="@dimen/avatar_box_size"
         android:layout_margin="@dimen/margin_standard"
+        android:layout_marginTop="16dp"
         android:contentDescription="@string/character_avatar_image"
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/uachar" />
+
+
 
     <TextView
         android:id="@+id/characterName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        tools:text="Character Name"
-        app:layout_constraintBottom_toBottomOf="@id/characterClass"
+        android:layout_margin="@dimen/margin_standard"
+        android:maxLines="2"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/characterAvatar"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_margin="@dimen/margin_standard"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:maxLines="2" />
+        tools:text="Character Name" />
 
     <TextView
         android:id="@+id/characterRace"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Race"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/characterAvatar"
-        app:layout_constraintTop_toBottomOf="@+id/characterName"
         android:layout_marginTop="@dimen/margin_half"
-        android:layout_marginStart="@dimen/margin_standard"
-        android:layout_marginEnd="@dimen/margin_half"/>
+        android:layout_marginEnd="@dimen/margin_half"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toBottomOf="@+id/characterName"
+        tools:text="Race" />
 
     <TextView
         android:id="@+id/characterClass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Class"
+        android:layout_marginStart="@dimen/margin_standard"
+        android:layout_marginTop="@dimen/margin_half"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/characterRace"
         app:layout_constraintTop_toBottomOf="@+id/characterName"
+        tools:text="Class" />
+
+    <TextView
+        android:id="@+id/profBonus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_standard"
         android:layout_marginTop="@dimen/margin_half"
-        android:layout_marginStart="@dimen/margin_standard"/>
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/characterClass"
+        app:layout_constraintTop_toBottomOf="@+id/characterName"
+        tools:text="PB: +0" />
 
     <TextView
         android:id="@+id/characterLvl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginLeft="@dimen/margin_standard"
-        android:layout_marginRight="@dimen/margin_standard"
-        android:maxLength="2"
-        android:textSize="36sp"
+        android:textSize="22sp"
+        android:layout_margin="8dp"
+        app:layout_constraintStart_toEndOf="@+id/profBonus"
+        app:layout_constraintTop_toBottomOf="@+id/characterName"
+        tools:text="Level: 00" />
+
+
+    <TextView
+        android:id="@+id/hpText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="28sp"
+        android:text="HP:"
         android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/characterAvatar"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="@dimen/margin_standard"/>
+
+
+    <Button
+        android:id="@+id/Hpbtn"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_standard"
+        android:backgroundTint="@color/teal_200"
+        android:text="100"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/hpText"
+        app:layout_constraintTop_toTopOf="@+id/guideline1" />
+
+    <TextView
+        android:id="@+id/hpTempText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_standard"
+        android:text="HP \n Temp:"
+        android:textAlignment="center"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+
+    <Button
+        android:id="@+id/hpBtn2"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_standard"
+        android:backgroundTint="@color/teal_200"
+        android:text="100"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/hpTempText"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+    <ToggleButton
+        android:id="@+id/InspButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textOn="INSPIRATION!"
+        android:textOff="no insp"
+        android:text="ToggleButton"
+        android:backgroundTint="@android:color/tertiary_text_light"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/characterName"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="00" />
+        app:layout_constraintStart_toEndOf="@+id/Hpbtn"
+        app:layout_constraintTop_toTopOf="@+id/guideline1" />
+
+
+    <TextView
+        android:id="@+id/notesBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notes"
+        android:textColor="@android:color/holo_blue_dark"
+        android:clickable="true"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:layout_margin="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/hpBtn2"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+    <TextView
+        android:id="@+id/spellSlotsTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_standard"
+        android:text="SpellSlots"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline3" />
+
+    <TextView
+        android:id="@+id/Skills"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_standard"
+        android:text="Skills"
+        android:textSize="22sp"
+        android:textStyle="bold"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline4" />
+
+    <ImageView
+        android:id="@+id/add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@+id/guideline4"
+        app:layout_constraintStart_toEndOf="@id/Skills"
+        app:srcCompat="@android:drawable/ic_menu_add"
+        android:layout_margin="@dimen/margin_standard"
+        android:clickable="true"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline6"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="106dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="186dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="271dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="441dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="122dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="496dp" />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

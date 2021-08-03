@@ -17,4 +17,10 @@ data class Character(
         val uri: String
                 get() = "drawable/$clas"
 
+        var maxHP: Int? = null
+        var tempHP: Int? = maxHP
+        var inspiration: Boolean = false
+        val notes: List<String>? = null
+
+
 }
