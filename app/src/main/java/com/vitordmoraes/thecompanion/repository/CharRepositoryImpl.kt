@@ -31,4 +31,6 @@ class CharRepositoryImpl (
             gson.fromJson(it.readText(), Character::class.java)
         }
     }
+
+
 }

@@ -10,17 +10,12 @@ data class Character(
         val race:String,
         val clas:String,
         var lvl: String,
+        var maxHP: Int? = null,
+        var tempHP: Int? = maxHP,
+        var inspiration: Boolean = false,
+        val notes: List<String>? = null
         ) : Parcelable
 {
         val id: String = UUID.randomUUID().toString()
-
-        val uri: String
-                get() = "drawable/$clas"
-
-        var maxHP: Int? = null
-        var tempHP: Int? = maxHP
-        var inspiration: Boolean = false
-        val notes: List<String>? = null
-
 
 }

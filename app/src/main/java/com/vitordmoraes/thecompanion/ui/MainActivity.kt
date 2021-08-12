@@ -11,24 +11,22 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.vitordmoraes.thecompanion.App
 import com.vitordmoraes.thecompanion.R
 import com.vitordmoraes.thecompanion.adapter.CharAdapter
-import com.vitordmoraes.thecompanion.databinding.ActivityMainBinding
 import com.vitordmoraes.thecompanion.model.Character
 import com.vitordmoraes.thecompanion.ui.CharacterActivity.CharacterActivity
 import com.vitordmoraes.thecompanion.ui.addChar.AddCharacterActivity
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity() {
 
     private val repository by lazy { App.repository }
     private val adapter by lazy { CharAdapter(::onShortItemClicked,::onLongItemClicked)}
-    private lateinit var binding: ActivityMainBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        this.binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        setSupportActionBar(binding.toolbar)
+        setContentView(R.layout.activity_main)
+        setSupportActionBar(toolbar)
 
     }
 
@@ -39,7 +37,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initUi() {
-        binding.fab.setOnClickListener { view ->
+        fab.setOnClickListener { view ->
             startActivity(AddCharacterActivity.getIntent(this))
         }
         characterRecyclerview.layoutManager = LinearLayoutManager(this)
