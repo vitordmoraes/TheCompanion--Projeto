@@ -21,9 +21,9 @@ class CharAdapter(private val onItemClicked: (Character) -> Unit,
                  onLongItemClicked: KFunction2<View, Character, Unit>) {
             val charAvatar = itemView.charAvatar
 
-            itemView.charClass.text = character.clas
             itemView.charName.text = character.name
             itemView.charRace.text = character.race
+            itemView.charClass.text = character.clas
             itemView.charLvl.text = character.lvl
 
             when (character.clas) {

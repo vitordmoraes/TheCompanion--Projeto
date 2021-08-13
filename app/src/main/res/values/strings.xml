@@ -14,7 +14,8 @@
     <string name="character_race">Character Race</string>
     <string name="character_class2">Character Class</string>
     <string name="character_level2">Character Level</string>
-    
+    <string name="pb_0">PB: +0</string>
+
     <string-array name="character_avatar">
         <item>Artificer</item>
         <item>Barbarian</item>

@@ -1,5 +1,6 @@
 package com.vitordmoraes.thecompanion.model
 
+import android.graphics.Bitmap
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 import java.util.*
@@ -16,6 +17,9 @@ data class Character(
         val notes: List<String>? = null
         ) : Parcelable
 {
+
         val id: String = UUID.randomUUID().toString()
+
+
 
 }

@@ -1,21 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="0dp"
+    tools:context=".ui.CharacterActivity.CharacterActivity"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
 
     <ImageView
         android:id="@+id/characterAvatar"
         android:layout_width="@dimen/avatar_box_size"
         android:layout_height="@dimen/avatar_box_size"
-        android:layout_margin="@dimen/margin_standard"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/margin_half"
+        android:layout_marginLeft="@dimen/margin_half"
+        android:layout_marginBottom="@dimen/margin_half"
         android:contentDescription="@string/character_avatar_image"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/guideline1"
+        app:layout_constraintEnd_toEndOf="@id/guidelineVertical"
         app:srcCompat="@drawable/uachar" />
+
+
 
 
 
@@ -23,13 +35,14 @@
         android:id="@+id/characterName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_standard"
+        android:layout_marginTop="@dimen/margin_standard"
         android:maxLines="2"
-        android:textSize="30sp"
+        android:textSize="26sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/characterAvatar"
+        app:layout_constraintStart_toEndOf="@id/guidelineVertical"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Character Name" />
+        tools:text="Character Name"
+        android:textColor="@color/black"/>
 
     <TextView
         android:id="@+id/characterRace"
@@ -38,7 +51,7 @@
         android:layout_marginTop="@dimen/margin_half"
         android:layout_marginEnd="@dimen/margin_half"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVertical"
         app:layout_constraintTop_toBottomOf="@+id/characterName"
         tools:text="Race" />
 
@@ -62,159 +75,1077 @@
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/characterClass"
         app:layout_constraintTop_toBottomOf="@+id/characterName"
-        tools:text="PB: +0" />
+        android:text="@string/pb_0" />
 
     <TextView
         android:id="@+id/characterLvl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="22sp"
-        android:layout_margin="8dp"
-        app:layout_constraintStart_toEndOf="@+id/profBonus"
-        app:layout_constraintTop_toBottomOf="@+id/characterName"
-        tools:text="Level: 00" />
-
-
-    <TextView
-        android:id="@+id/hpText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="28sp"
-        android:text="HP:"
+        android:layout_margin="@dimen/margin_standard"
+        android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/characterAvatar"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="@dimen/margin_standard"/>
+        app:layout_constraintStart_toEndOf="@+id/characterName"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="00"
+        android:textColor="@color/black"/>
 
 
-    <Button
-        android:id="@+id/Hpbtn"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_standard"
-        android:backgroundTint="@color/teal_200"
-        android:text="100"
-        android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/hpText"
-        app:layout_constraintTop_toTopOf="@+id/guideline1" />
-
-    <TextView
-        android:id="@+id/hpTempText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_standard"
-        android:text="HP \n Temp:"
-        android:textAlignment="center"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline2" />
-
-
-    <Button
-        android:id="@+id/hpBtn2"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_standard"
-        android:backgroundTint="@color/teal_200"
-        android:text="100"
-        android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/hpTempText"
-        app:layout_constraintTop_toTopOf="@+id/guideline2" />
-
-    <ToggleButton
-        android:id="@+id/InspButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:textOn="INSPIRATION!"
-        android:textOff="no insp"
-        android:text="ToggleButton"
-        android:backgroundTint="@android:color/tertiary_text_light"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/Hpbtn"
-        app:layout_constraintTop_toTopOf="@+id/guideline1" />
-
-
-    <TextView
-        android:id="@+id/notesBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Notes"
-        android:textColor="@android:color/holo_blue_dark"
-        android:clickable="true"
-        android:textSize="26sp"
-        android:textStyle="bold"
-        android:layout_margin="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/hpBtn2"
-        app:layout_constraintTop_toTopOf="@+id/guideline2" />
-
-    <TextView
-        android:id="@+id/spellSlotsTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_standard"
-        android:text="SpellSlots"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/guideline5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/guideline3" />
-
-    <TextView
-        android:id="@+id/Skills"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_standard"
-        android:text="Skills"
-        android:textSize="22sp"
-        android:textStyle="bold"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/guideline4" />
-
-    <ImageView
-        android:id="@+id/add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@+id/guideline4"
-        app:layout_constraintStart_toEndOf="@id/Skills"
-        app:srcCompat="@android:drawable/ic_menu_add"
-        android:layout_margin="@dimen/margin_standard"
-        android:clickable="true"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="106dp" />
+        app:layout_constraintGuide_begin="106dp"
+        android:layout_margin="@dimen/margin_standard"/>
 
+
+    //GUIDELINE2=================================================================
+
+    <LinearLayout
+        android:id="@+id/statsContainer"
+        android:layout_width="0dp"
+        android:layout_height="wr"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline1"
+        app:layout_constraintBottom_toTopOf="@id/guideline2"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/primaryColor">
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="right">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" "
+                android:textStyle="bold"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Stats:"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bonus:"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="24sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save:"
+                android:textStyle="bold"
+                android:textColor="@color/redrose"
+                android:textSize="16sp"
+                android:layout_gravity="right"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="STR"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/str"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="10"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/strBonus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+0"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/strValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+0"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:textColor="@color/redrose"/>
+            </LinearLayout>
+        //DEX======================================================================
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DEX"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/dex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="10"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/dexBonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+0"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/dexValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+0"
+            android:textSize="16sp"
+            android:textColor="@color/redrose"
+            android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+        //CONS============================================================================
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CONS"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/cons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="10"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/consBonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+0"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/consValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+0"
+            android:textSize="16sp"
+            android:textColor="@color/redrose"
+            android:textStyle="bold" />
+
+        </LinearLayout>
+
+//INT========================================================================
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="INT"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/iint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="10"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/intBonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+0"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/intValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+0"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/redrose"/>
+    </LinearLayout>
+        //WIS============================================
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="WIS"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/wis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="10"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/wisBonus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+0"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/wisValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+0"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/redrose" />
+
+        </LinearLayout>
+
+        //CHAR===============================================================
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CHAR"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/charr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="10"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/charBonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+0"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/charValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+0"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/redrose" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+//Guideline 2=============================================================================
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="186dp" />
+        app:layout_constraintGuide_begin="219dp" />
+
+
+    <CheckBox
+        android:id="@+id/InspButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="Inspiration!"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        app:layout_constraintBottom_toTopOf="@id/ppIndicator"/>
+
+    <RelativeLayout
+        android:id="@+id/layoutDie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toStartOf="@+id/deathFail"
+        app:layout_constraintStart_toEndOf="@+id/ppIndicator"
+        app:layout_constraintTop_toBottomOf="@+id/acIndicator">
+
+        <ImageView
+            android:id="@+id/imageDie"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/hitdie"/>
+
+        <TextView
+            android:id="@+id/hitDie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:text="D8"
+            android:layout_alignBottom="@+id/imageDie"
+            android:layout_alignRight="@+id/imageDie"
+            android:layout_alignEnd="@+id/imageDie"
+            android:layout_alignLeft="@+id/imageDie"
+            android:layout_alignStart="@+id/imageDie"
+            android:layout_alignTop="@+id/imageDie"
+            android:gravity="center" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/acIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/layoutDie"
+        app:layout_constraintStart_toEndOf="@+id/InspButton"
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toStartOf="@id/deathSucess">
+
+    <ImageView
+        android:id="@+id/acContainer"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/shield"/>
+
+    <TextView
+        android:id="@+id/acValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:text="AC"
+        android:layout_marginBottom="8dp"
+        android:layout_alignBottom="@+id/acContainer"
+        android:layout_alignRight="@+id/acContainer"
+        android:layout_alignEnd="@+id/acContainer"
+        android:layout_alignLeft="@+id/acContainer"
+        android:layout_alignStart="@+id/acContainer"
+        android:layout_alignTop="@+id/acContainer"
+        android:gravity="center" />
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/deathSucess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="S:"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/deathFail"
+        app:layout_constraintEnd_toStartOf="@id/dsCountainer"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+    <TextView
+        android:id="@+id/deathFail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="F:"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toStartOf="@+id/dsCountainer"
+        app:layout_constraintTop_toBottomOf="@+id/deathSucess" />
+
+    <TextView
+        android:id="@+id/ppIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="P. Perception"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guidelineVertical"
+        app:layout_constraintBottom_toBottomOf="@id/guideline3"
+        app:layout_constraintTop_toBottomOf="@id/InspButton"
+ />
+
+    <TextView
+        android:id="@+id/deathSaves"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_standard"
+        android:text="Death Saves"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/dsCountainer"
+        app:layout_constraintStart_toStartOf="@+id/dsCountainer"
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        app:layout_constraintBottom_toTopOf="@id/dsCountainer"/>
+
+    <LinearLayout
+        android:id="@+id/dsCountainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@id/guideline3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline2">
+
+
+        <LinearLayout
+            android:id="@+id/SucessContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/FailureContainer">
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+//==========================================================================
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="271dp" />
+        app:layout_constraintGuide_begin="354dp" />
+
+<LinearLayout
+    android:id="@+id/hpContainer"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="@id/guidelineVertical"
+    app:layout_constraintTop_toTopOf="@id/guideline3"
+    app:layout_constraintBottom_toBottomOf="@id/guideline4"
+    android:padding="@dimen/margin_half">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Health \n Editor"
+        android:textColor="@color/redrose"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textAlignment="center"/>
+
+    <ImageView
+        android:id="@+id/healthBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:srcCompat="@drawable/healthicon" />
+
+</LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/hpContainer2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="@dimen/margin_standard"
+        app:layout_constraintStart_toStartOf="@id/guidelineVertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline3"
+        app:layout_constraintBottom_toBottomOf="@id/guideline4">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/hpBar"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/my_hp_bar" />
+
+        <TextView
+            android:id="@+id/hpValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/hpBar"
+            android:layout_alignLeft="@+id/hpBar"
+            android:layout_alignTop="@+id/hpBar"
+            android:layout_alignEnd="@+id/hpBar"
+            android:layout_alignRight="@+id/hpBar"
+            android:layout_alignBottom="@+id/hpBar"
+            android:gravity="center"
+            android:text="1"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+</LinearLayout>
+
+
+//Guideline4=====================================================================
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="441dp" />
+        app:layout_constraintGuide_begin="436dp" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guidelineVertical"
+        app:layout_constraintTop_toTopOf="@id/guideline4"
+        app:layout_constraintBottom_toBottomOf="@id/guideline5"
+        android:padding="@dimen/margin_standard">
+
+
+    <TextView
+        android:id="@+id/spellSlotsTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Spell \n Slots"
+        android:textAlignment="center"
+        android:textColor="@color/spellblue"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@id/guideline4" />
+
+        <ImageView
+            android:id="@+id/editSlot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:srcCompat="@drawable/spellslot" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/spellCountainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="@id/guidelineVertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline4"
+        app:layout_constraintBottom_toBottomOf="@id/guideline5"
+        android:gravity="center"
+        android:background="@drawable/my_btn_roud_gray">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="left">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Level:"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Slots:"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Left:"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="left">
+
+            <TextView
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1°"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/margin_half"/>
+
+            <TextView
+                android:id="@+id/totalSlot1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/margin_half"/>
+
+            <TextView
+                android:id="@+id/slotChar1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/margin_half"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="left">
+
+            <TextView
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2°"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/margin_half"/>
+
+            <TextView
+                android:id="@+id/totalSlot2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/margin_half"/>
+
+            <TextView
+                android:id="@+id/slotChar2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/margin_half"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="left">
+
+            <TextView
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3°"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/margin_half"/>
+
+            <TextView
+                android:id="@+id/totalSlot3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/margin_half"/>
+
+            <TextView
+                android:id="@+id/slotChar3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/margin_half"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="left">
+
+            <TextView
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4°"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/margin_half"/>
+
+            <TextView
+                android:id="@+id/totalSlot4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/margin_half"/>
+
+            <TextView
+                android:id="@+id/slotChar4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/margin_half"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="left">
+
+            <TextView
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5°"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/margin_half"/>
+
+            <TextView
+                android:id="@+id/totalSlot5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/margin_half"/>
+
+            <TextView
+                android:id="@+id/slotChar5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/margin_half"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="left">
+
+            <TextView
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="6°"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/margin_half"/>
+
+            <TextView
+                android:id="@+id/totalSlot6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/margin_half"/>
+
+            <TextView
+                android:id="@+id/slotChar6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/margin_half"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="left">
+
+            <TextView
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="7°"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/margin_half"/>
+
+            <TextView
+                android:id="@+id/totalSlot7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/margin_half"/>
+
+            <TextView
+                android:id="@+id/slotChar7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/margin_half"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="left">
+
+            <TextView
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8°"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/margin_half"/>
+
+            <TextView
+                android:id="@+id/totalSlot8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/margin_half"/>
+
+            <TextView
+                android:id="@+id/slotChar8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/margin_half"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="left">
+
+            <TextView
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="9°"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/margin_half"/>
+
+            <TextView
+                android:id="@+id/totalSlot9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/margin_half"/>
+
+            <TextView
+                android:id="@+id/slotChar9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/margin_half"/>
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+
+//GUIDELINE5================================================================
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="526dp" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guidelineVertical"
+        app:layout_constraintTop_toTopOf="@id/guideline5"
+        app:layout_constraintBottom_toBottomOf="@id/guideline6"
+        android:padding="@dimen/margin_standard">
+
+
+        <TextView
+            android:id="@+id/skillsTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Skills"
+            android:textColor="@color/secondaryDarkColor"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="@id/guideline4" />
+
+        <ImageView
+            android:id="@+id/editSkills"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:srcCompat="@drawable/sword" />
+    </LinearLayout>
+
+
+
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineVertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -225,9 +1156,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="496dp" />
-
+        app:layout_constraintGuide_begin="591dp" />
 
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
