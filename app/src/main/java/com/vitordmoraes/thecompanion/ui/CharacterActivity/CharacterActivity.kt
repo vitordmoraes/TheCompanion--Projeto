@@ -4,8 +4,12 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.view.Menu
+import android.view.MenuInflater
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.vitordmoraes.thecompanion.R
 import com.vitordmoraes.thecompanion.model.Character
 import kotlinx.android.synthetic.main.character_activity.*
@@ -66,6 +70,17 @@ class CharacterActivity : AppCompatActivity() {
             "Wizard"->      characterAvatar.setImageResource(R.drawable.wizard)
             "Custom Character"->characterAvatar.setImageResource(R.drawable.uachar)
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.edit_character_menu, menu)
+        return true
+    }
+
+    private fun navControler() {
+        val navController = findNavController(R.id.charNavMenu)
+        charNavMenu.setupWithNavController(navController)
     }
 
 

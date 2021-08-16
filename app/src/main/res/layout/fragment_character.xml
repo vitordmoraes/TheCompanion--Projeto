@@ -95,7 +95,7 @@
         tools:text="00"
         android:textColor="@color/black"/>
 
-//GUIDELINE1=================================================================
+    //GUIDELINE1=================================================================
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline1"
@@ -161,18 +161,18 @@
             android:layout_weight="1"
             android:gravity="center">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="STR"
-            android:textSize="14sp"
-            android:textStyle="bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="STR"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
 
-        <TextView
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="+0"
-            android:textColor="@color/black"
+                android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"/>
             <TextView
@@ -333,7 +333,7 @@
 
 
     </LinearLayout>
-//GUIDELINE2============================================================================
+    //GUIDELINE2============================================================================
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -387,28 +387,28 @@
         app:layout_constraintTop_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toStartOf="@id/guidelineVertical">
 
-    <ImageView
-        android:id="@+id/acContainer"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:src="@drawable/shield"/>
+        <ImageView
+            android:id="@+id/acContainer"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/shield"/>
 
-    <TextView
-        android:id="@+id/acValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="26sp"
-        android:textStyle="bold"
-        android:text="AC"
-        android:layout_marginBottom="8dp"
-        android:layout_alignBottom="@+id/acContainer"
-        android:layout_alignRight="@+id/acContainer"
-        android:layout_alignEnd="@+id/acContainer"
-        android:layout_alignLeft="@+id/acContainer"
-        android:layout_alignStart="@+id/acContainer"
-        android:layout_alignTop="@+id/acContainer"
-        android:gravity="center" />
+        <TextView
+            android:id="@+id/acValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:text="AC"
+            android:layout_marginBottom="8dp"
+            android:layout_alignBottom="@+id/acContainer"
+            android:layout_alignRight="@+id/acContainer"
+            android:layout_alignEnd="@+id/acContainer"
+            android:layout_alignLeft="@+id/acContainer"
+            android:layout_alignStart="@+id/acContainer"
+            android:layout_alignTop="@+id/acContainer"
+            android:gravity="center" />
 
     </RelativeLayout>
 
@@ -576,29 +576,29 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="317dp" />
 
-<LinearLayout
-    android:id="@+id/hpContainer"
-    android:layout_width="0dp"
-    android:layout_height="0dp"
-    android:orientation="horizontal"
-    android:gravity="center_vertical"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="@id/guidelineVertical"
-    app:layout_constraintTop_toTopOf="@id/guideline3"
-    app:layout_constraintBottom_toBottomOf="@id/guideline4"
-    android:padding="@dimen/margin_half">
+    <LinearLayout
+        android:id="@+id/hpContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guidelineVertical"
+        app:layout_constraintTop_toTopOf="@id/guideline3"
+        app:layout_constraintBottom_toBottomOf="@id/guideline4"
+        android:padding="@dimen/margin_half">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Health \n Editor"
-        android:textColor="@color/redrose"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textAlignment="center"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Health \n Editor"
+            android:textColor="@color/redrose"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textAlignment="center"/>
 
 
-</LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/hpContainer2"
@@ -612,37 +612,37 @@
         app:layout_constraintTop_toTopOf="@id/guideline3"
         app:layout_constraintBottom_toBottomOf="@id/guideline4">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <View
-            android:id="@+id/hpBar"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/my_hp_bar" />
-
-        <TextView
-            android:id="@+id/hpValue"
+        <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/hpBar"
-            android:layout_alignLeft="@+id/hpBar"
-            android:layout_alignTop="@+id/hpBar"
-            android:layout_alignEnd="@+id/hpBar"
-            android:layout_alignRight="@+id/hpBar"
-            android:layout_alignBottom="@+id/hpBar"
-            android:gravity="center"
-            android:text="1"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:layout_height="wrap_content">
 
-    </RelativeLayout>
-</LinearLayout>
+            <View
+                android:id="@+id/hpBar"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/my_hp_bar" />
+
+            <TextView
+                android:id="@+id/hpValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/hpBar"
+                android:layout_alignLeft="@+id/hpBar"
+                android:layout_alignTop="@+id/hpBar"
+                android:layout_alignEnd="@+id/hpBar"
+                android:layout_alignRight="@+id/hpBar"
+                android:layout_alignBottom="@+id/hpBar"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+    </LinearLayout>
 
 
-//Guideline4=====================================================================
+    //Guideline4=====================================================================
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
@@ -653,7 +653,7 @@
 
 
 
-   <androidx.constraintlayout.widget.Guideline
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineVertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

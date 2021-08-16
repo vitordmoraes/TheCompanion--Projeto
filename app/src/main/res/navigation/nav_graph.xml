@@ -3,26 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
-
+    app:startDestination="@id/statsFragment">
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.vitordmoraes.thecompanion.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
-        <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-    </fragment>
+        android:id="@+id/statsFragment"
+        android:name="com.vitordmoraes.thecompanion.ui.CharacterActivity.StatsFragment"
+        android:label="fragment_stats"
+        tools:layout="@layout/fragment_stats" />
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.vitordmoraes.thecompanion.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
-    </fragment>
+        android:id="@+id/spellsFragment"
+        android:name="com.vitordmoraes.thecompanion.ui.CharacterActivity.SpellsFragment"
+        android:label="fragment_spells"
+        tools:layout="@layout/fragment_spells" />
+    <fragment
+        android:id="@+id/notesFragment"
+        android:name="com.vitordmoraes.thecompanion.ui.CharacterActivity.NotesFragment"
+        android:label="fragment_notes"
+        tools:layout="@layout/fragment_notes" />
+    <fragment
+        android:id="@+id/characterFragment"
+        android:name="com.vitordmoraes.thecompanion.characterFragment"
+        android:label="fragment_character"
+        tools:layout="@layout/character_fragment" />
 </navigation>

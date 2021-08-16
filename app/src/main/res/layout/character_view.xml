@@ -7,7 +7,7 @@
     android:layout_height="@dimen/character_choose_height">
 
     <androidx.cardview.widget.CardView
-        app:cardUseCompatPadding="false"
+        app:cardUseCompatPadding="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="2dp"
@@ -39,9 +39,10 @@
                  android:layout_width="0dp"
                  android:layout_height="wrap_content"
                  tools:text="Character Name"
-                 app:layout_constraintBottom_toBottomOf="@id/charClass"
+                 app:layout_constraintBottom_toTopOf="@id/charClass"
                  app:layout_constraintStart_toEndOf="@+id/charAvatar"
                  app:layout_constraintTop_toTopOf="parent"
+                 android:maxLength="16"
                  android:layout_margin="@dimen/margin_standard"
                  android:textSize="@dimen/character_name_size"
                  android:textStyle="bold"

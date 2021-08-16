@@ -20,6 +20,10 @@ data class Character(
 
         val id: String = UUID.randomUUID().toString()
 
-
-
+        val str = "10"
+        val dex = "10"
+        val cons = "10"
+        val int = "10"
+        val wis = "10"
+        val char = "10"
 }
