@@ -1,8 +1,11 @@
 package com.vitordmoraes.thecompanion.repository
 
+import android.os.Bundle
+import androidx.fragment.app.Fragment
 import com.google.gson.Gson
 import com.vitordmoraes.thecompanion.files.FilesHelper
 import com.vitordmoraes.thecompanion.model.Character
+import com.vitordmoraes.thecompanion.ui.CharacterActivity.fragments.CharacterFragment
 
 class CharRepositoryImpl (
         private val filesHelper: FilesHelper,
@@ -31,6 +34,7 @@ class CharRepositoryImpl (
             gson.fromJson(it.readText(), Character::class.java)
         }
     }
+
 
 
 }

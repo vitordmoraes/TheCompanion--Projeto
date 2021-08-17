@@ -6,17 +6,17 @@
     app:startDestination="@id/statsFragment">
     <fragment
         android:id="@+id/statsFragment"
-        android:name="com.vitordmoraes.thecompanion.ui.CharacterActivity.StatsFragment"
+        android:name="com.vitordmoraes.thecompanion.ui.CharacterActivity.fragments.StatsFragment"
         android:label="fragment_stats"
         tools:layout="@layout/fragment_stats" />
     <fragment
         android:id="@+id/spellsFragment"
-        android:name="com.vitordmoraes.thecompanion.ui.CharacterActivity.SpellsFragment"
+        android:name="com.vitordmoraes.thecompanion.ui.CharacterActivity.fragments.SpellsFragment"
         android:label="fragment_spells"
         tools:layout="@layout/fragment_spells" />
     <fragment
         android:id="@+id/notesFragment"
-        android:name="com.vitordmoraes.thecompanion.ui.CharacterActivity.NotesFragment"
+        android:name="com.vitordmoraes.thecompanion.ui.CharacterActivity.fragments.NotesFragment"
         android:label="fragment_notes"
         tools:layout="@layout/fragment_notes" />
     <fragment

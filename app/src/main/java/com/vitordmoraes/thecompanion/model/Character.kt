@@ -26,4 +26,7 @@ data class Character(
         val int = "10"
         val wis = "10"
         val char = "10"
+
+        val skills : MutableList<Skill>? = null
+        val spells : MutableList<Spell>? = null
 }

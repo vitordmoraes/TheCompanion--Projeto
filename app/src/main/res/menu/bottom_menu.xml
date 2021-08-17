@@ -3,18 +3,23 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/characterMenu"
         android:title="Home"
-        android:icon="@drawable/ic_baseline_home_24"/>
+        android:icon="@drawable/ic_baseline_home_24"
+        app:showAsAction="always"/>
     <item
-        android:id="@+id/statsFragment"
+        android:id="@+id/statsMenu"
         android:title="Stats"
-        android:icon="@drawable/ic_baseline_person_24"/>
+        android:icon="@drawable/ic_baseline_person_24"
+        app:showAsAction="always"/>
     <item
-        android:id="@+id/spellsFragment"
+        android:id="@+id/spellsMenu"
         android:title="Spells"
-        android:icon="@drawable/ic_baseline_ac_unit_24"/>
+        android:icon="@drawable/ic_baseline_ac_unit_24"
+        app:showAsAction="always"/>
     <item
-        android:id="@+id/notesFragment"
+        android:id="@+id/notesMenu"
         android:title="Notes"
-        android:icon="@drawable/ic_baseline_notes_24"/>
+        android:icon="@drawable/ic_baseline_notes_24"
+        app:showAsAction="always"/>
 </menu>
