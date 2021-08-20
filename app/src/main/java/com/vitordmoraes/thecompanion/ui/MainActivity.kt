@@ -6,7 +6,10 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.vitordmoraes.thecompanion.App
 import com.vitordmoraes.thecompanion.R
@@ -14,6 +17,7 @@ import com.vitordmoraes.thecompanion.adapter.CharAdapter
 import com.vitordmoraes.thecompanion.model.Character
 import com.vitordmoraes.thecompanion.ui.CharacterActivity.CharacterActivity
 import com.vitordmoraes.thecompanion.ui.addChar.AddCharacterActivity
+import com.vitordmoraes.thecompanion.viewModel.CharViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 
@@ -27,7 +31,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-
     }
 
     override fun onStart() {

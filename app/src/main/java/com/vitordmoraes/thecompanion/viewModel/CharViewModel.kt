@@ -3,21 +3,22 @@ package com.vitordmoraes.thecompanion.viewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.vitordmoraes.thecompanion.model.Character
+import com.vitordmoraes.thecompanion.repository.CharRepository
 
-class CharViewModel : ViewModel() {
+class CharViewModel() : ViewModel() {
 
-    private var characterValue : Character = Character(" ","", "1"," ")
+
     private val _characterInfo = MutableLiveData<Character>()
     val characterInfo : LiveData<Character> = _characterInfo
 
-    fun setCharacterInfo() {
-        _characterInfo.value = characterValue
-    }
 
-    fun getCharacterInfo(characterValue: Character) {
-        this.characterValue = characterValue
+
+    fun setCharacterInfo(character: Character){
+        _characterInfo.value = character
     }
 
 
 }
+

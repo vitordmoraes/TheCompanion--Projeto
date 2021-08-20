@@ -8,10 +8,8 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.vitordmoraes.thecompanion.R
 import com.vitordmoraes.thecompanion.model.Character
@@ -26,8 +24,7 @@ import kotlinx.android.synthetic.main.character_activity.*
 
 class CharacterActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener{
 
-    private lateinit var viewModel : CharViewModel
-
+    private lateinit var viewModel: CharViewModel
     private val characterFragment by lazy { CharacterFragment() }
     private val  statsFragment by lazy { StatsFragment() }
     private val  spellsFragment by lazy { SpellsFragment() }
@@ -38,20 +35,17 @@ class CharacterActivity : AppCompatActivity(), BottomNavigationView.OnNavigation
         super.onCreate(savedInstanceState)
         setContentView(R.layout.character_activity)
 
+        viewModel = ViewModelProvider(this).get(CharViewModel::class.java)
 
     }
+
+
 
     override fun onStart() {
         super.onStart()
-        getCharacter()
         initUi()
-
-
     }
 
-    override fun onResume() {
-        super.onResume()
-    }
 
     companion object {
         private const val CHAR_KEY = "Character"
@@ -66,9 +60,7 @@ class CharacterActivity : AppCompatActivity(), BottomNavigationView.OnNavigation
 
     private fun getCharacter() {
         val char = intent.extras?.getParcelable<Character>(CHAR_KEY)!!
-
-
-
+        viewModel.setCharacterInfo(char)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -78,27 +70,15 @@ class CharacterActivity : AppCompatActivity(), BottomNavigationView.OnNavigation
     }
 
 
-    private fun navControler() {
-        val navController = findNavController(R.id.charNavMenu)
-        val appControler = AppBarConfiguration(setOf(
-            R.id.characterFragment,
-            R.id.statsFragment,
-            R.id.spellsFragment,
-            R.id.notesFragment))
-    setupActionBarWithNavController(navController,appControler)
-    charNavMenu.setupWithNavController(navController)
-    }
-
 
 
     fun initUi(){
     val fragmentCharacter = CharacterFragment()
         setFragment(fragmentCharacter)
         charNavMenu.setOnNavigationItemSelectedListener(this)
+        getCharacter()
 
     }
-
-
 
     private fun setFragment(fragment: Fragment){
         val fragmentTransition = supportFragmentManager.beginTransaction()
@@ -114,6 +94,7 @@ class CharacterActivity : AppCompatActivity(), BottomNavigationView.OnNavigation
         }
         return true
     }
+
 
 
 }

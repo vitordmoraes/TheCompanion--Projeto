@@ -5,28 +5,40 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import com.vitordmoraes.thecompanion.R
-import com.vitordmoraes.thecompanion.model.Character
+import com.vitordmoraes.thecompanion.viewModel.CharViewModel
 import kotlinx.android.synthetic.main.fragment_character.*
 
 
 class CharacterFragment : Fragment() {
 
-
+    private val viewModel :CharViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
+
         return inflater.inflate(R.layout.fragment_character, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        getCharacter()
     }
 
 
 
-    fun getCharacter () {
-        val char = Character("Vitor", "Human", "Wizard", "10")
 
+
+    private fun getCharacter () {
+        var char = viewModel.characterInfo.value
+
+
+        if (char != null) {
         characterName.text = char.name
         characterLvl.text = char.lvl
         characterRace.text = char.race
@@ -48,5 +60,7 @@ class CharacterFragment : Fragment() {
             "Wizard" -> characterAvatar.setImageResource(R.drawable.wizard)
             "Custom Character" -> characterAvatar.setImageResource(R.drawable.uachar)
         }
+      }
+
     }
 }

@@ -21,7 +21,7 @@
         tools:layout="@layout/fragment_notes" />
     <fragment
         android:id="@+id/characterFragment"
-        android:name="com.vitordmoraes.thecompanion.characterFragment"
+        android:name="com.vitordmoraes.thecompanion.ui.CharacterActivity.fragments.CharacterFragment"
         android:label="fragment_character"
-        tools:layout="@layout/character_fragment" />
+        tools:layout="@layout/fragment_character" />
 </navigation>
