@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/editCharacterFragment"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.CharacterActivity.fragments.EditCharacterFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_margin="@dimen/margin_standard"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Character Name"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/primaryDarkColor"
+            android:layout_marginBottom="@dimen/margin_half"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Set attributes below:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/secondaryDarkColor" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_half">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Level:"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+            <EditText
+                android:id="@+id/editLvl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="2"
+                android:inputType="number"
+                android:layout_marginRight="@dimen/margin_half"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Max Health"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+            <EditText
+                android:id="@+id/editHP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="3"
+                android:inputType="number" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Set total (include bonus) stats value and check if you have save proficience:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/secondaryDarkColor" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_half">
+            <RadioButton
+                android:id="@+id/editSTRsave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="STR:"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+            <EditText
+                android:id="@+id/editSTR"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="2"
+                android:inputType="number"
+                android:layout_marginRight="@dimen/margin_half"
+                />
+
+            <RadioButton
+                android:id="@+id/editDEXsave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DEX"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+            <EditText
+                android:id="@+id/ediDEX"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="2"
+                android:inputType="number"
+                android:layout_marginRight="@dimen/margin_half" />
+            <RadioButton
+                android:id="@+id/editCONSsave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CONS:"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+            <EditText
+                android:id="@+id/editCONS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="2"
+                android:inputType="number"
+                android:layout_marginRight="@dimen/margin_half"/>
+            </LinearLayout>
+            <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_half">
+
+            <RadioButton
+                android:id="@+id/editINTsave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="INT"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+            <EditText
+                android:id="@+id/editINT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="2"
+                android:inputType="number"
+                android:layout_marginRight="@dimen/margin_half" />
+            <RadioButton
+                android:id="@+id/editWISsave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="WIS:"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+            <EditText
+                android:id="@+id/editWIS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="2"
+                android:inputType="number"
+                android:layout_marginRight="@dimen/margin_half"/>
+
+            <RadioButton
+                android:id="@+id/editCHARsave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CHAR"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+            <EditText
+                android:id="@+id/editCHAR"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="2"
+                android:inputType="number"
+                android:layout_marginRight="@dimen/margin_half" />
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Set weapons, attack bonus and skill bonus damages:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/secondaryDarkColor" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_half">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Weapon:"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+            <EditText
+                android:id="@+id/editWeaponName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="4"
+                android:inputType="text"/>
+
+            <Spinner
+                android:id="@+id/editWeaponDice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/dice_type"
+                android:spinnerMode="dropdown"
+                />
+            <Spinner
+                android:id="@+id/editWeaponDmg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/stats_type"
+                android:spinnerMode="dropdown"
+                />
+            <Spinner
+                android:id="@+id/editWeaponType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/damage_type"
+                android:spinnerMode="dropdown"
+                />
+    </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

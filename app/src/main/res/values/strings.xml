@@ -14,7 +14,6 @@
     <string name="character_race">Character Race</string>
     <string name="character_class2">Character Class</string>
     <string name="character_level2">Character Level</string>
-    <string name="pb_0">PB: +0</string>
 
     <string-array name="character_avatar">
         <item>Artificer</item>
@@ -32,6 +31,31 @@
         <item>Wizard</item>
         <item>Custom Class</item>
     </string-array>
+
+    <string-array name="dice_type">
+        <item>D4</item>
+        <item>D6</item>
+        <item>D8</item>
+        <item>D10</item>
+        <item>D12</item>
+        <item>D20</item>
+    </string-array>
+
+    <string-array name="stats_type">
+        <item>STR</item>
+        <item>DEX</item>
+        <item>CONS</item>
+        <item>INT</item>
+        <item>WIS</item>
+        <item>CHAR</item>
+    </string-array>
+
+    <string-array name="damage_type">
+        <item>Slashing</item>
+        <item>Piercing</item>
+        <item>Bludgeoning</item>
+    </string-array>
+
 
 
     <string-array name="character_level">

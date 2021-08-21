@@ -43,6 +43,7 @@ class CharacterFragment : Fragment() {
         characterLvl.text = char.lvl
         characterRace.text = char.race
         characterClass.text = char.clas
+        characterPB.text = viewModel.setCharPbBonus()
 
         when (char.clas) {
             "Artificer" -> characterAvatar.setImageResource(R.drawable.artificer)

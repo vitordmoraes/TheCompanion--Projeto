@@ -8,18 +8,13 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.vitordmoraes.thecompanion.R
 import com.vitordmoraes.thecompanion.model.Character
-import com.vitordmoraes.thecompanion.ui.CharacterActivity.fragments.CharacterFragment
-import com.vitordmoraes.thecompanion.ui.CharacterActivity.fragments.NotesFragment
-import com.vitordmoraes.thecompanion.ui.CharacterActivity.fragments.SpellsFragment
-import com.vitordmoraes.thecompanion.ui.CharacterActivity.fragments.StatsFragment
+import com.vitordmoraes.thecompanion.ui.CharacterActivity.fragments.*
 import com.vitordmoraes.thecompanion.viewModel.CharViewModel
 import kotlinx.android.synthetic.main.character_activity.*
-
 
 
 class CharacterActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener{
@@ -74,7 +69,12 @@ class CharacterActivity : AppCompatActivity(), BottomNavigationView.OnNavigation
 
     fun initUi(){
     val fragmentCharacter = CharacterFragment()
-        setFragment(fragmentCharacter)
+    val fragmentEditChar = EditCharacterFragment()
+        if (viewModel.characterInfo.value?.maxHP == null) {
+            setFragment(fragmentEditChar)
+        } else {
+            setFragment(fragmentCharacter)
+        }
         charNavMenu.setOnNavigationItemSelectedListener(this)
         getCharacter()
 
@@ -93,6 +93,17 @@ class CharacterActivity : AppCompatActivity(), BottomNavigationView.OnNavigation
             R.id.notesMenu -> setFragment(notesFragment)
         }
         return true
+    }
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        return when (item.itemId) {
+            R.id.action_settings -> true
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
 

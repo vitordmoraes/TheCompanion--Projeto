@@ -19,6 +19,11 @@ class CharViewModel() : ViewModel() {
         _characterInfo.value = character
     }
 
+    fun setCharPbBonus():String {
+        val lvltoInt = characterInfo.value!!.lvl.toInt()
+        val pbBonus = lvltoInt/4 +1
+        return "PB:+ $pbBonus"
+    }
 
 }
 

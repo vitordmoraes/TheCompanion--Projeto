@@ -10,7 +10,7 @@
         app:cardUseCompatPadding="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="2dp"
+        app:cardCornerRadius="10dp"
         app:cardElevation="8dp"
         app:cardPreventCornerOverlap="false"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -32,7 +32,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/uachar" />
+                app:srcCompat="@drawable/uachar"
+                android:background="@color/white"/>
 
              <TextView
                  android:id="@+id/charName"

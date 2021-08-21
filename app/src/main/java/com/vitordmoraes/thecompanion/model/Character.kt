@@ -20,12 +20,12 @@ data class Character(
 
         val id: String = UUID.randomUUID().toString()
 
-        val str = "10"
-        val dex = "10"
-        val cons = "10"
-        val int = "10"
-        val wis = "10"
-        val char = "10"
+        var str = "10"
+        var dex = "10"
+        var cons = "10"
+        var int = "10"
+        var wis = "10"
+        var char = "10"
 
         val skills : MutableList<Skill>? = null
         val spells : MutableList<Spell>? = null
