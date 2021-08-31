@@ -4,21 +4,18 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.Resources
 import android.os.Bundle
-import android.view.View
-import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.vitordmoraes.thecompanion.model.Character
 import com.vitordmoraes.thecompanion.App
-import com.vitordmoraes.thecompanion.App.*
 import com.vitordmoraes.thecompanion.R
-import kotlinx.android.synthetic.main.add_character.*
-import kotlinx.android.synthetic.main.content_main.*
+import com.vitordmoraes.thecompanion.databinding.AddCharacterBinding
 
 
 class AddCharacterActivity :AppCompatActivity () {
 
+    private lateinit var binding: AddCharacterBinding
     private val repository by lazy { App.repository }
 
     companion object {
@@ -26,11 +23,10 @@ class AddCharacterActivity :AppCompatActivity () {
                 Intent(context, AddCharacterActivity::class.java)
     }
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.add_character)
+        binding = AddCharacterBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         arrayFun()
         createChar()
@@ -42,22 +38,22 @@ class AddCharacterActivity :AppCompatActivity () {
         val level = res.getStringArray(R.array.character_level)
 
 
-        charClassCreator.adapter = ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, avatar)
-        charLevelCreator.adapter = ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, level)
+        binding.charClassCreator.adapter = ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, avatar)
+        binding.charLevelCreator.adapter = ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, level)
 
 
     }
 
     private fun createChar() {
-        addCharBtn.setOnClickListener{newChar()}
+        binding.addCharBtn.setOnClickListener{newChar()}
     }
 
 
     private fun newChar() {
-        val newCharName = charNameCreator.text.toString()
-        val newCharRace = charRaceCreator.text.toString()
-        val newCharClass = charClassCreator.selectedItem.toString()
-        val newCharLvl = charLevelCreator.selectedItem.toString()
+        val newCharName = binding.charNameCreator.text.toString()
+        val newCharRace = binding.charRaceCreator.text.toString()
+        val newCharClass = binding.charClassCreator.selectedItem.toString()
+        val newCharLvl = binding.charLevelCreator.selectedItem.toString()
         if (newCharName.isNotEmpty() &&
                 newCharRace.isNotEmpty() ){
                     repository.saveChar(Character(

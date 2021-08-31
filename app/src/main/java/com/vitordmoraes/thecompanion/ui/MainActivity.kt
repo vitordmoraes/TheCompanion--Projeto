@@ -6,31 +6,28 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.vitordmoraes.thecompanion.App
 import com.vitordmoraes.thecompanion.R
 import com.vitordmoraes.thecompanion.adapter.CharAdapter
+import com.vitordmoraes.thecompanion.databinding.ActivityMainBinding
 import com.vitordmoraes.thecompanion.model.Character
 import com.vitordmoraes.thecompanion.ui.CharacterActivity.CharacterActivity
 import com.vitordmoraes.thecompanion.ui.addChar.AddCharacterActivity
-import com.vitordmoraes.thecompanion.viewModel.CharViewModel
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var binding : ActivityMainBinding
     private val repository by lazy { App.repository }
     private val adapter by lazy { CharAdapter(::onShortItemClicked,::onLongItemClicked)}
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
     }
 
     override fun onStart() {
@@ -40,11 +37,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initUi() {
-        fab.setOnClickListener { view ->
+        binding.fab.setOnClickListener {
             startActivity(AddCharacterActivity.getIntent(this))
         }
-        characterRecyclerview.layoutManager = LinearLayoutManager(this)
-        characterRecyclerview.adapter = adapter
+        binding.characterRecyclerview.layoutManager = LinearLayoutManager(this)
+        binding.characterRecyclerview.adapter = adapter
         refresh()
     }
 

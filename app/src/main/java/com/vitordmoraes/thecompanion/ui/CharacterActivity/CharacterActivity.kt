@@ -11,14 +11,15 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.vitordmoraes.thecompanion.R
+import com.vitordmoraes.thecompanion.databinding.CharacterActivityBinding
 import com.vitordmoraes.thecompanion.model.Character
 import com.vitordmoraes.thecompanion.ui.CharacterActivity.fragments.*
 import com.vitordmoraes.thecompanion.viewModel.CharViewModel
-import kotlinx.android.synthetic.main.character_activity.*
 
 
 class CharacterActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener{
 
+    private lateinit var binding: CharacterActivityBinding
     private lateinit var viewModel: CharViewModel
     private val characterFragment by lazy { CharacterFragment() }
     private val  statsFragment by lazy { StatsFragment() }
@@ -28,7 +29,8 @@ class CharacterActivity : AppCompatActivity(), BottomNavigationView.OnNavigation
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.character_activity)
+        binding = CharacterActivityBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         viewModel = ViewModelProvider(this).get(CharViewModel::class.java)
 
@@ -75,7 +77,7 @@ class CharacterActivity : AppCompatActivity(), BottomNavigationView.OnNavigation
         } else {
             setFragment(fragmentCharacter)
         }
-        charNavMenu.setOnNavigationItemSelectedListener(this)
+        binding.charNavMenu.setOnNavigationItemSelectedListener(this)
         getCharacter()
 
     }

@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/editCharacterFragment"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.CharacterActivity.fragments.EditCharacterFragment"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/editCharacterFragment"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.CharacterActivity.fragments.EditCharacterFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
         android:gravity="center"
-        android:layout_margin="@dimen/margin_standard"
+        android:layout_margin="@dimen/margin_half"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -24,6 +29,28 @@
             android:textStyle="bold"
             android:textColor="@color/primaryDarkColor"
             android:layout_marginBottom="@dimen/margin_half"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Character Class"
+                android:layout_marginRight="@dimen/margin_standard"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginBottom="@dimen/margin_half"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Character Class"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginBottom="@dimen/margin_half"/>
+        </LinearLayout>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -47,6 +74,7 @@
                 android:id="@+id/editLvl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:maxLength="2"
                 android:ems="2"
                 android:inputType="number"
                 android:layout_marginRight="@dimen/margin_half"/>
@@ -54,15 +82,63 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Max Health"
+                android:text="Max Health: "
                 android:textSize="16sp"
                 android:textStyle="bold"/>
             <EditText
                 android:id="@+id/editHP"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:maxLength="3"
                 android:ems="3"
                 android:inputType="number" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Speed: "
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+            <EditText
+                android:id="@+id/editSpeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLength="3"
+                android:ems="3"
+                android:inputType="number" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_half">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AC: "
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+            <EditText
+                android:id="@+id/editAC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLength="2"
+                android:ems="2"
+                android:inputType="number"
+                android:layout_marginRight="@dimen/margin_half"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hit Die: "
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+            <Spinner
+                android:id="@+id/editHpDie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/dice_type"
+                android:spinnerMode="dropdown"
+                />
 
         </LinearLayout>
 
@@ -70,7 +146,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="Set total (include bonus) stats value and check if you have save proficience:"
+            android:text="Set total (include bonus) stats value:"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@color/secondaryDarkColor" />
@@ -79,7 +155,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_half">
-            <RadioButton
+            <TextView
                 android:id="@+id/editSTRsave"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -93,9 +169,10 @@
                 android:ems="2"
                 android:inputType="number"
                 android:layout_marginRight="@dimen/margin_half"
+                android:maxLength="2"
                 />
 
-            <RadioButton
+            <TextView
                 android:id="@+id/editDEXsave"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -107,9 +184,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="2"
+                android:maxLength="2"
                 android:inputType="number"
                 android:layout_marginRight="@dimen/margin_half" />
-            <RadioButton
+            <TextView
                 android:id="@+id/editCONSsave"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -121,6 +199,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="2"
+                android:maxLength="2"
                 android:inputType="number"
                 android:layout_marginRight="@dimen/margin_half"/>
             </LinearLayout>
@@ -129,7 +208,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_half">
 
-            <RadioButton
+            <TextView
                 android:id="@+id/editINTsave"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -141,9 +220,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="2"
+                android:maxLength="2"
                 android:inputType="number"
                 android:layout_marginRight="@dimen/margin_half" />
-            <RadioButton
+            <TextView
                 android:id="@+id/editWISsave"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -155,10 +235,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="2"
+                android:maxLength="2"
                 android:inputType="number"
                 android:layout_marginRight="@dimen/margin_half"/>
 
-            <RadioButton
+            <TextView
                 android:id="@+id/editCHARsave"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -170,6 +251,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="2"
+                android:maxLength="2"
                 android:inputType="number"
                 android:layout_marginRight="@dimen/margin_half" />
         </LinearLayout>
@@ -177,49 +259,143 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="Set weapons, attack bonus and skill bonus damages:"
+            android:text="Set alignment and other info:"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@color/secondaryDarkColor" />
-        <LinearLayout
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <RadioButton
+            android:id="@+id/lg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_half">
+            android:layout_weight="0"
+            android:text="LG"
+            android:onClick="onRadioButtonClicked"
+            android:layout_marginRight="@dimen/margin_half"/>
+
+        <RadioButton android:id="@+id/ng"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NG"
+            android:onClick="onRadioButtonClicked"
+            android:layout_marginRight="@dimen/margin_half"/>
+        <RadioButton android:id="@+id/cg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CG"
+            android:onClick="onRadioButtonClicked"
+            android:layout_marginRight="@dimen/margin_half"/>
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <RadioButton
+                android:id="@+id/ln"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LN"
+                android:onClick="onRadioButtonClicked"
+                android:layout_marginRight="@dimen/margin_half"/>
+
+            <RadioButton android:id="@+id/nn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NN"
+                android:onClick="onRadioButtonClicked"
+                android:layout_marginRight="@dimen/margin_half"/>
+            <RadioButton android:id="@+id/cn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CN"
+                android:onClick="onRadioButtonClicked"
+                android:layout_marginRight="@dimen/margin_half"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="@dimen/margin_half">
+            <RadioButton
+                android:id="@+id/le"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LE"
+                android:onClick="onRadioButtonClicked"
+                android:layout_marginRight="@dimen/margin_half"/>
+
+            <RadioButton
+                android:id="@+id/ne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NE"
+                android:onClick="onRadioButtonClicked"
+                android:layout_marginRight="@dimen/margin_half"/>
+            <RadioButton
+                android:id="@+id/ce"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CE"
+                android:onClick="onRadioButtonClicked"
+                android:layout_marginRight="@dimen/margin_half"/>
+        </LinearLayout>
+
+        <LinearLayout
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_margin="@dimen/margin_half">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Weapon:"
+                android:text="Age:"
                 android:textSize="16sp"
                 android:textStyle="bold"/>
             <EditText
-                android:id="@+id/editWeaponName"
+                android:id="@+id/editAge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="4"
-                android:inputType="text"/>
+                android:maxLength="2"
+                android:ems="2"
+                android:inputType="number"
+                android:layout_marginRight="@dimen/margin_half"/>
 
-            <Spinner
-                android:id="@+id/editWeaponDice"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:entries="@array/dice_type"
-                android:spinnerMode="dropdown"
-                />
-            <Spinner
-                android:id="@+id/editWeaponDmg"
+                android:text="Height: "
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+            <EditText
+                android:id="@+id/editHeight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:entries="@array/stats_type"
-                android:spinnerMode="dropdown"
-                />
-            <Spinner
-                android:id="@+id/editWeaponType"
+                android:maxLength="3"
+                android:ems="3"
+                android:inputType="number" />
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:entries="@array/damage_type"
-                android:spinnerMode="dropdown"
-                />
+                android:text="Weight: "
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+            <EditText
+                android:id="@+id/editWeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLength="3"
+                android:ems="3"
+                android:inputType="number" />
+            </LinearLayout>
     </LinearLayout>
-    </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

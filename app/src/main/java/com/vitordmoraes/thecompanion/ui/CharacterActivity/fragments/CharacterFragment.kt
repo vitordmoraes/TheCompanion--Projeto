@@ -7,22 +7,24 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.vitordmoraes.thecompanion.R
+import com.vitordmoraes.thecompanion.databinding.FragmentCharacterBinding
 import com.vitordmoraes.thecompanion.viewModel.CharViewModel
-import kotlinx.android.synthetic.main.fragment_character.*
 
 
 class CharacterFragment : Fragment() {
-
+    private var _binding: FragmentCharacterBinding? = null
+    private val binding get() = _binding!!
     private val viewModel :CharViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        _binding = FragmentCharacterBinding.inflate(
+            inflater, container, false)
 
 
-        return inflater.inflate(R.layout.fragment_character, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -39,27 +41,27 @@ class CharacterFragment : Fragment() {
 
 
         if (char != null) {
-        characterName.text = char.name
-        characterLvl.text = char.lvl
-        characterRace.text = char.race
-        characterClass.text = char.clas
-        characterPB.text = viewModel.setCharPbBonus()
+        binding.characterName.text = char.name
+        binding.characterLvl.text = char.lvl
+        binding.characterRace.text = char.race
+        binding.characterClass.text = char.clas
+        binding.characterPB.text = viewModel.setCharPbBonus()
 
         when (char.clas) {
-            "Artificer" -> characterAvatar.setImageResource(R.drawable.artificer)
-            "Barbarian" -> characterAvatar.setImageResource(R.drawable.barbarian)
-            "Bard" -> characterAvatar.setImageResource(R.drawable.bard)
-            "Blood hunter" -> characterAvatar.setImageResource(R.drawable.bloodhunter)
-            "Cleric" -> characterAvatar.setImageResource(R.drawable.cleric)
-            "Druid" -> characterAvatar.setImageResource(R.drawable.druid)
-            "Fighter" -> characterAvatar.setImageResource(R.drawable.fighter)
-            "Monk" -> characterAvatar.setImageResource(R.drawable.monk)
-            "Paladin" -> characterAvatar.setImageResource(R.drawable.paladin)
-            "Ranger" -> characterAvatar.setImageResource(R.drawable.ranger)
-            "Rogue" -> characterAvatar.setImageResource(R.drawable.rogue)
-            "Sorcerer" -> characterAvatar.setImageResource(R.drawable.sorc)
-            "Wizard" -> characterAvatar.setImageResource(R.drawable.wizard)
-            "Custom Character" -> characterAvatar.setImageResource(R.drawable.uachar)
+            "Artificer" -> binding.characterAvatar.setImageResource(R.drawable.artificer)
+            "Barbarian" -> binding.characterAvatar.setImageResource(R.drawable.barbarian)
+            "Bard" -> binding.characterAvatar.setImageResource(R.drawable.bard)
+            "Blood hunter" -> binding.characterAvatar.setImageResource(R.drawable.bloodhunter)
+            "Cleric" -> binding.characterAvatar.setImageResource(R.drawable.cleric)
+            "Druid" -> binding.characterAvatar.setImageResource(R.drawable.druid)
+            "Fighter" -> binding.characterAvatar.setImageResource(R.drawable.fighter)
+            "Monk" -> binding.characterAvatar.setImageResource(R.drawable.monk)
+            "Paladin" -> binding.characterAvatar.setImageResource(R.drawable.paladin)
+            "Ranger" -> binding.characterAvatar.setImageResource(R.drawable.ranger)
+            "Rogue" -> binding.characterAvatar.setImageResource(R.drawable.rogue)
+            "Sorcerer" -> binding.characterAvatar.setImageResource(R.drawable.sorc)
+            "Wizard" -> binding.characterAvatar.setImageResource(R.drawable.wizard)
+            "Custom Character" -> binding.characterAvatar.setImageResource(R.drawable.uachar)
         }
       }
 
